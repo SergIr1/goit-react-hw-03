@@ -19,7 +19,7 @@ export default function App() {
     if (savedInitialContact !== null) {
       return JSON.parse(savedInitialContact);
     }
-    return contactList;
+    return initialContact;
   });
   const [filterValue, setFilterValue] = useState('');
 
