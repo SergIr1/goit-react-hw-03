@@ -9,6 +9,22 @@
   border-radius: 4px;
 }
 
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.icon {
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;
+  /* fill: black; */
+}
+
 .text {
   font-weight: 600;
   color: rgb(255, 255, 255);
@@ -19,7 +35,7 @@
 }
 
 .button {
-  width: 115px;
+  width: 100px;
   height: 40px;
   padding: 0;
   border: none;
