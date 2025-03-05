@@ -1,5 +1,5 @@
 import css from './App.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
@@ -13,7 +13,14 @@ const initialContact = [
 ];
 
 export default function App() {
-  const [contactList, setContactList] = useState(initialContact);
+  const [contactList, setContactList] = useState(() => {
+    const savedInitialContact = localStorage.getItem('contacts');
+
+    if (savedInitialContact !== null) {
+      return JSON.parse(savedInitialContact);
+    }
+    return contactList;
+  });
   const [filterValue, setFilterValue] = useState('');
 
   const addContact = newContact => {
@@ -32,6 +39,10 @@ export default function App() {
   const visibleContacts = contactList.filter(contact =>
     contact.name.toLowerCase().includes(filterValue.toLowerCase())
   );
+
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contactList));
+  }, [contactList]);
 
   return (
     <div className={css.container}>

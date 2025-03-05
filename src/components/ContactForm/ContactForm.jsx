@@ -1,5 +1,8 @@
 import { useId } from 'react';
+import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
+
+console.log(nanoid);
 
 export default function ContactForm({ onAdd }) {
   const nameId = useId();
@@ -7,7 +10,7 @@ export default function ContactForm({ onAdd }) {
   const handeleSubmit = event => {
     event.preventDefault();
     onAdd({
-      id: Date.now(),
+      id: nanoid(),
       name: event.target.elements.name.value,
       number: event.target.elements.number.value,
     });
