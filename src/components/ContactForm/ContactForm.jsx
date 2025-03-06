@@ -5,8 +5,9 @@ import css from './ContactForm.module.css';
 console.log(nanoid);
 
 export default function ContactForm({ onAdd }) {
-  const nameId = useId();
-  const numberId = useId();
+  const filedId = useId();
+  // const nameId = useId();
+  // const numberId = useId();
   const handeleSubmit = event => {
     event.preventDefault();
     onAdd({
@@ -18,7 +19,7 @@ export default function ContactForm({ onAdd }) {
   };
   return (
     <form className={css.form} onSubmit={handeleSubmit}>
-      <label className={css.textLabel} htmlFor={nameId}>
+      <label className={css.textLabel} htmlFor={`${filedId}-name`}>
         Name
       </label>
       <input
@@ -26,9 +27,9 @@ export default function ContactForm({ onAdd }) {
         placeholder="Your name"
         type="text"
         name="name"
-        id={nameId}
+        id={`${filedId}-name`}
       />
-      <label className={css.textLabel} htmlFor={numberId}>
+      <label className={css.textLabel} htmlFor={`${filedId}-number`}>
         Number
       </label>
       <input
@@ -36,7 +37,7 @@ export default function ContactForm({ onAdd }) {
         placeholder="Your number"
         type="tel"
         name="number"
-        id={numberId}
+        id={`${filedId}-number`}
       />
       <button className={css.button} type="submit">
         Add contact
