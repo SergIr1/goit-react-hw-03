@@ -53,3 +53,49 @@ export default function App() {
     </div>
   );
 }
+
+// ======================= hands work =======================
+
+// export default function App() {
+//   const [contactList, setContactList] = useState(() => {
+//     const savedInitialContact = localStorage.getItem('contacts');
+
+//     if (savedInitialContact !== null) {
+//       return JSON.parse(savedInitialContact);
+//     }
+//     return initialContact;
+//   });
+//   const [filterValue, setFilterValue] = useState('');
+
+//   const addContact = newContact => {
+//     setContactList(prevContact => {
+//       return [...prevContact, newContact];
+//     });
+//   };
+
+//   const deleteContact = contactId => {
+//     console.log(contactId);
+//     setContactList(prevContact => {
+//       return prevContact.filter(contact => contact.id !== contactId);
+//     });
+//   };
+
+//   const visibleContacts = contactList.filter(contact =>
+//     contact.name.toLowerCase().includes(filterValue.toLowerCase())
+//   );
+
+//   useEffect(() => {
+//     localStorage.setItem('contacts', JSON.stringify(contactList));
+//   }, [contactList]);
+
+//   return (
+//     <div className={css.container}>
+//       <h1 className={css.title}>Phonebook</h1>
+//       <ContactForm onAdd={addContact} />
+//       <SearchBox value={filterValue} onChange={setFilterValue} />
+//       <ContactList contacts={visibleContacts} onDelete={deleteContact} />
+//     </div>
+//   );
+// }
+
+// ======================= /hands work =======================
