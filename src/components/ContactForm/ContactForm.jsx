@@ -18,7 +18,6 @@ const UserSchema = Yup.object().shape({
 
 export default function ContactForm({ onAdd }) {
   const handeleSubmit = (values, actions) => {
-    console.log('handeleSubmit', values);
     const newContact = {
       id: nanoid(),
       name: values.name,
